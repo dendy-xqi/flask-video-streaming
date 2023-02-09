@@ -1,13 +1,21 @@
 #!/usr/bin/env python
+
+# Python 3.9.12
+# PIP 23.0
+# opencv-python 3.2.0.8 > 4.7.0.68
+# numpy 1.13.1 > 1.24.2
+# python -m pip install -r .\requirements-opencv.txt
+
 from importlib import import_module
 import os
 from flask import Flask, render_template, Response
 
 # import camera driver
-if os.environ.get('CAMERA'):
-    Camera = import_module('camera_' + os.environ['CAMERA']).Camera
-else:
-    from camera import Camera
+# if os.environ.get('CAMERA'):
+#     Camera = import_module('camera_' + os.environ['CAMERA']).Camera
+# else:
+#     from camera import Camera
+from camera_opencv import Camera
 
 # Raspberry Pi camera module (requires picamera package)
 # from camera_pi import Camera
